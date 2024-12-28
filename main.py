@@ -16,6 +16,8 @@ while True:
 
     if choice == 1:
         date = input("Choose a date: ")
+        datetime.datetime.strptime(date, "%Y-%m-%d")
+
         description = input("Input a description: ")
 
         cur.execute("SELECT DISTINCT category FROM expenses")
@@ -65,6 +67,9 @@ while True:
         elif option == 2:
             month = input("Enter the month: ")
             year = input("Enter the year: ")
+
+            datetime.datetime.strptime(f"{year}-{month}-01", "%Y-%m-%d")
+
             cur.execute(
                 "SELECT category, SUM(price) FROM expenses WHERE strftime('%m', Date) = ? AND strftime('%Y', Date) = ? GROUP BY category",
                 (month, year),
