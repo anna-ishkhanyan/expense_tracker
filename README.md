@@ -14,3 +14,16 @@ An Expense Tracker is a simple Python application that helps you keep track of y
 
 - **Python**: The core language used for development.
 - **SQLite3**: Lightweight database engine used to store expense records.
+- **Docker**: Used to containerize the app and make it portable and easy to run in any environment.
+
+## Dockerfile
+This project includes a `Dockerfile` that allows you to easily run the Expense Tracker app within a Docker container. The Dockerfile is configured to create a container that:
+
+1. Uses the official Python 3.10-slim image.
+2. Copies the application files (`main.py` and `db_maker.py`) into the container.
+3. Sets up a volume to store the database file (`expenses.db`).
+4. Runs the `db_maker.py` script to initialize the database and prepares the app for usage.
+5. Runs the `main.py` script to start the app.
+
+To build and run the app with Docker run the command 
+```bash run_docker.sh```
